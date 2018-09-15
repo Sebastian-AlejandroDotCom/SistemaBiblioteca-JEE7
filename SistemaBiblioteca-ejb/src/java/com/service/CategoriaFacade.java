@@ -6,6 +6,7 @@
 package com.service;
 
 import com.model.Categoria;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +28,17 @@ public class CategoriaFacade extends AbstractFacade<Categoria> implements Catego
 
     public CategoriaFacade() {
         super(Categoria.class);
+    }
+    
+    @Override
+    public List<Categoria> findById(Integer id) {
+        List<Categoria> list = em.createNamedQuery("Categoria.findByIdCategoria").setParameter("idCategoria", id).getResultList();
+        
+        if (list == null || list.isEmpty()){
+            return null;
+        }else{
+            return list;
+        }
     }
     
 }

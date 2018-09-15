@@ -27,6 +27,8 @@ public interface IdiomaFacadeLocal {
     List<Idioma> findAll();
 
     List<Idioma> findRange(int[] range);
+    
+    List<Idioma> findById(Integer id);
 
     int count();
     

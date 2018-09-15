@@ -6,6 +6,7 @@
 package com.service;
 
 import com.model.Autor;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,4 +30,14 @@ public class AutorFacade extends AbstractFacade<Autor> implements AutorFacadeLoc
         super(Autor.class);
     }
     
+    @Override
+    public List<Autor> findById(Integer id) {
+        List<Autor> list = em.createNamedQuery("Autor.findByIdAutor").setParameter("idAutor", id).getResultList();
+        
+        if (list == null || list.isEmpty()){
+            return null;
+        }else{
+            return list;
+        }
+    }
 }

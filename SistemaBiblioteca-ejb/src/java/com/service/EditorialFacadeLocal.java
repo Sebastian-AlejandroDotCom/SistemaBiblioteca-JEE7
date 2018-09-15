@@ -27,6 +27,8 @@ public interface EditorialFacadeLocal {
     List<Editorial> findAll();
 
     List<Editorial> findRange(int[] range);
+    
+    List<Editorial> findById(Integer id);
 
     int count();
     

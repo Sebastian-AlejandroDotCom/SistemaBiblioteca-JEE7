@@ -1,0 +1,42 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="page" tagdir="/WEB-INF/tags/" %>
+
+<page:layout>
+    <jsp:body>
+        <!-- Content -->
+        <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fas fa-book"></i> Editar Idioma</h3>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 offset-lg-3">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Datos Idioma
+                            </header>
+                            <div class="panel-body">
+                                <form action="editarIdioma" method="post">
+                                    <input class="form-control" id="idIdioma" name="idIdioma" value="${idioma.idIdioma}" type="hidden">
+                                    <div class="form-group">
+                                        <label>Nombre Idioma</label>
+                                        <input class="form-control" id="nombreIdioma" name="nombreIdioma" value="${idioma.nombreIdioma}" type="text" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" id="editarIdioma">Actualizar</button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    </jsp:body>
+</page:layout>

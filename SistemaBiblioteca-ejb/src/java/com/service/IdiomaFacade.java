@@ -6,6 +6,7 @@
 package com.service;
 
 import com.model.Idioma;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,4 +30,14 @@ public class IdiomaFacade extends AbstractFacade<Idioma> implements IdiomaFacade
         super(Idioma.class);
     }
     
+    @Override
+    public List<Idioma> findById(Integer id) {
+        List<Idioma> list = em.createNamedQuery("Idioma.findByIdIdioma").setParameter("idIdioma", id).getResultList();
+        
+        if (list == null || list.isEmpty()){
+            return null;
+        }else{
+            return list;
+        }
+    }
 }

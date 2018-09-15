@@ -28,6 +28,8 @@ public interface AutorFacadeLocal {
 
     List<Autor> findRange(int[] range);
 
+    List<Autor> findById(Integer id);
+    
     int count();
     
 }

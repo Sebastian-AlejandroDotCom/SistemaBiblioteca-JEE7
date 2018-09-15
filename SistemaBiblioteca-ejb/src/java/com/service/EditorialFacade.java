@@ -6,6 +6,7 @@
 package com.service;
 
 import com.model.Editorial;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,4 +30,14 @@ public class EditorialFacade extends AbstractFacade<Editorial> implements Editor
         super(Editorial.class);
     }
     
+    @Override
+    public List<Editorial> findById(Integer id) {
+        List<Editorial> list = em.createNamedQuery("Editorial.findByIdEditorial").setParameter("idEditorial", id).getResultList();
+        
+        if (list == null || list.isEmpty()){
+            return null;
+        }else{
+            return list;
+        }
+    }
 }
